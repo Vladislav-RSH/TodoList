@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Amatic SC';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Amatic SC'), url('/path/to/AmaticSc-Regular.woff2') format('woff2');
+}
