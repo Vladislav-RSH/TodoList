@@ -3,15 +3,16 @@ import Search from "./search";
 import Task from "./task";
 import React, { useState } from 'react';
 
-
 export default function Dashboard() {
-
   const [tasks, setTasks] = useState([]);
 
   const handleAddTask = (task) => {
     setTasks([...tasks, task]);
   };
 
+  const handleDeleteTask = (index) => {
+    setTasks(tasks.filter((task, i) => i !== index));
+  };
 
   return (
     <section className="w-1/2 h-[97%] bg-teal-400 rounded-2xl flex flex-col items-center border-2 border-black px-12">
@@ -21,7 +22,7 @@ export default function Dashboard() {
         <AddButton onAddTask={handleAddTask} />
       </div>
       {tasks.map((task, index) => (
-        <Task key={index} task={task.task} description={task.description} />
+        <Task key={index} task={task.task} description={task.description} index={index} onDelete={handleDeleteTask} />
       ))}
     </section>
   );
