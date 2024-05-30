@@ -1,16 +1,19 @@
 import Delete from "./delete";
 import Check from "./check";
-import React from 'react';
 
-export default function Task({ task, index, onDelete }) {
+export default function Task({ task, onDelete, onCheck }) {
   return (
-    <div className="w-full mt-8 rounded-xl border-2 border-black bg-fuchsia-600 flex justify-between items-center p-2">
-      <div>
-        <p>{task}</p>
+    <div className="flex justify-between mb-4">
+      <div className="w-5/6">
+        <h1 className="text-lg">{task}</h1>
       </div>
-      <div className="p-0 m-0">
-        <Check />
-        <Delete index={index} onDelete={onDelete}/>
+      <div className="flex justify-end">
+        <button onClick={onDelete} className="bg-red-400 w-8 h-8 rounded-[50%] border-2 border-black flex items-center justify-center">
+          <Delete />
+        </button>
+        <button onClick={onCheck} className="bg-green-400 w-8 h-8 rounded-[50%] border-2 border-black flex items-center justify-center">
+          <Check />
+        </button>
       </div>
     </div>
   );
